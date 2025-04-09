@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Clases {
+public class Ejercicio3{
     
     public func ejercicio3_1() ->Bool {
         print("Introduce un número:")
@@ -337,6 +337,7 @@ public class Clases {
         print("**************")
         print("Introduce varios numeros ")
         guard let entrada = readLine() else{return 0}
+        var digitos : [Int] = []
         
     }
     
