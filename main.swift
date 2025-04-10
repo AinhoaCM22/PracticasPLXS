@@ -7,7 +7,7 @@
 
 import Foundation
 
-Ejercicio1
-Ejercicio2
-Ejercicio3
+Ejercicio1()
+Ejercicio2()
+Ejercicio3()
 

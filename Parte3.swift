@@ -127,7 +127,7 @@ public class Ejercicio3{
         print("EJERCICIO 3_8")
         print("*************")
         let fecha : Date = Date.now
-        let fechaFormateada : DateFormatter
+        let fechaFormateada = DateFormatter()
         fechaFormateada.dateFormat = "dd/MM/YYYY"
         let fechaString = fechaFormateada.string(from: fecha)
         print(fechaString)
@@ -331,15 +331,99 @@ public class Ejercicio3{
         print(cadena.lowercased())
     }
     
-    public func ejercicio3_21() -> Int{
+    public func ejercicio3_21() -> Int {
         print("**************")
         print("EJERCICIO 3_21")
         print("**************")
-        print("Introduce varios numeros ")
+        print("Introduce varios numeros separados por comas: ")
         guard let entrada = readLine() else{return 0}
-        var digitos : [Int] = []
+        let string = entrada
+        var digitos = string.split(separator: ",").compactMap { Int($0.trimmingCharacters(in: .whitespaces))}
+        var suma = 0
+        
+        for i in 0...digitos.count {
+            suma += digitos[i]
+        }
+        
+        return suma
+    }
+    
+    public func ejercicio3_22() -> Int {
+        print("**************")
+        print("EJERCICIO 3_22")
+        print("**************")
+        print("Introduce varios numeros separados por comas: ")
+        guard let entrada = readLine() else{return 0}
+        let string = entrada
+        var digitos = string.split(separator: ",").compactMap { Int($0.trimmingCharacters(in: .whitespaces))}
+        var max = 0
+        
+        for i in 0...digitos.count {
+            if max < digitos[i]{
+                max = digitos[i]
+            }
+        }
+        return max
+    }
+    
+    public func ejercicio3_23() {
+        print("**************")
+        print("EJERCICIO 3_23")
+        print("**************")
+        print("Introduce varios numeros separados por comas: ")
+        let entrada = readLine() ?? "0"
+        let string = entrada
+        var digitos = string.split(separator: ",").compactMap { Int($0.trimmingCharacters(in: .whitespaces))}
+        var reves : [Int] = []
+        var ultimo = digitos.count
+        
+        for _ in 0...digitos.count {
+            reves.append(digitos[ultimo])
+            ultimo = ultimo - 1
+        
+        }
+        print(reves)
         
     }
     
+    public func ejercicio3_24() {
+        print("**************")
+        print("EJERCICIO 3_24")
+        print("**************")
+        print("Introduce varios numeros separados por comas: ")
+        var entrada = readLine() ?? "0"
+        let string = entrada
+        var digitos = string.split(separator: ",").compactMap { Int($0.trimmingCharacters(in: .whitespaces))}
+        print("Introduce el número que quieras buscar:")
+        entrada = readLine() ?? "0"
+        let numB = Int(entrada)!
+        var cuenta = 0
+        
+        for i in 0...digitos.count {
+            if i == numB {
+                cuenta = cuenta + 1
+            }
+        }
+        print(cuenta)
+    }
+    
+    public func ejercicio3_25() {
+        print("**************")
+        print("EJERCICIO 3_25")
+        print("**************")
+        print("Introduce varios numeros separados por comas: ")
+        let entrada = readLine() ?? "0"
+        let string = entrada
+        var digitos = string.split(separator: ",").compactMap { Int($0.trimmingCharacters(in: .whitespaces))}
+        var noNegativos : [Int] = []
+        
+        for i in 0...digitos.count {
+            if i >= 0 {
+                noNegativos.append(i)
+            }
+        }
+        print(noNegativos)
+    }
+
     
 }
