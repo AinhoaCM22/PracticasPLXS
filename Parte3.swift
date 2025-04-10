@@ -9,6 +9,36 @@ import Foundation
 
 public class Ejercicio3{
     
+    public init() {
+        ejercicio3_1()
+        ejercicio3_2()
+        ejercicio3_3()
+        ejercicio3_4()
+        ejercicio3_5()
+        ejercicio3_6()
+        ejercicio3_7()
+        ejercicio3_8()
+        ejercicio3_9()
+        ejercicio3_10()
+        ejercicio3_11()
+        ejercicio3_12()
+        ejercicio3_13()
+        ejercicio3_14()
+        ejercicio3_15()
+        ejercicio3_16()
+        ejercicio3_16()
+        ejercicio3_17()
+        ejercicio3_18()
+        ejercicio3_19()
+        ejercicio3_20()
+        ejercicio3_21()
+        ejercicio3_22()
+        ejercicio3_23()
+        ejercicio3_24()
+        ejercicio3_25()
+        
+    }
+    
     public func ejercicio3_1() ->Bool {
         print("Introduce un número:")
         guard let entrada = readLine() else { return false }
@@ -80,7 +110,7 @@ public class Ejercicio3{
             print("Cantidad de vocales: \(cantidadVocales)")
     }
  
-    public func Ejercicio3_6() {
+    public func ejercicio3_6() {
         print("*************")
         print("EJERCICIO 3_6")
         print("*************")

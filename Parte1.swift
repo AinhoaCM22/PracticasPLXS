@@ -9,6 +9,24 @@ import Foundation
 
 public class Ejercicio1{
     
+    public init() {
+        ejercicio1()
+        ejercicio2()
+        ejercicio3()
+        ejercicio4()
+        ejercicio5()
+        ejercicio6()
+        ejercicio7()
+        ejercicio8()
+        ejercicio9()
+        ejercicio10()
+        ejercicio11()
+        ejercicio12()
+        ejercicio13()
+        ejercicio14()
+        ejercicio15()
+    }
+    
     public func ejercicio1(){
         print("***********")
         print("EJERCICIO 1")

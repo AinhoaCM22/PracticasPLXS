@@ -8,6 +8,17 @@
 import Foundation
 
 public class Ejercicio2{
+    
+    public init () {
+        ejercicio2_1()
+        ejercicio2_2()
+        ejercicio2_3()
+        ejercicio2_4()
+        ejercicio2_5()
+        ejercicio2_6()
+        ejercicio2_7()
+    }
+    
     public func ejercicio2_1() {
         print("*************")
         print("EJERCICIO 2_1")
