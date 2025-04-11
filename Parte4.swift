@@ -7,7 +7,54 @@
 
 import Foundation
 
+//Creación del protocolos
+protocol Saludable {
+    func saludar() -> String
+}
+
+protocol Vehiculo {
+    var velocidad : Double { get  set}
+    func acelerar(masVelocidad : Double) -> Double
+}
+
+protocol Reiniciable {
+    func reiniciar(confirmacion : Bool)
+}
+
+protocol Volador {
+    func volar()
+}
+
+protocol Nadador {
+    func nadar()
+}
+
+protocol Corredor {
+    func correr()
+}
+
+protocol DownloadDelegate {
+    func descargaTerminada()
+}
+
+protocol Actualizable {
+    func actualizarPantalla()
+}
+
+protocol BotonDelegate {
+    func botonPresionado()
+}
+
+protocol FormularioDelegate {
+    func formularioInvalido()
+}
+
 public class Ejercicio4 {
+    
+    var array : [Int] = [ 1 , 2 , 3 , 4 ]
+    public init () {
+        ejercicio4_32(array: array)
+    }
     
     public func ejercicio4_1() {
         print("*************")
@@ -154,7 +201,7 @@ public class Ejercicio4 {
         print("**************")
         print("EJERCICIO 4_10")
         print("**************")
-        guard let numeros = cadena , !(cadena?.isEmpty ?? <#default value#>) else {
+        guard let numeros = cadena , !(cadena?.isEmpty ?? false) else {
             print("Array inválido")
             return
         }
@@ -182,6 +229,7 @@ public class Ejercicio4 {
         guard let entrada = readLine() , let num = Int(entrada) else{
             throw errores.conversionFallida("No se pudo convertir")
         }
+        return "Se pudo convertir \(num)"
     }
     
     public func ejercicio4_12() throws -> String {
@@ -192,6 +240,7 @@ public class Ejercicio4 {
         guard let entrada = readLine() , let num = Int(entrada) , num > 18 else {
             throw errores.menor("No puedes comprar alcohol.")
         }
+        return "Eres mayor de edad"
     }
     
     public func ejercicio4_13() throws -> String {
@@ -202,7 +251,7 @@ public class Ejercicio4 {
         guard let entrada = readLine() , let ruta = Optional(entrada) else {
             throw errores.archivoNoEncontrado("No se ha encontrado el archivo")
         }
-       
+        return "Se ha encontrado el archivo"
     }
     
     public func ejercicio4_14() throws -> String {
@@ -217,7 +266,7 @@ public class Ejercicio4 {
         guard let entrada = readLine() , let divisor = Int(entrada) , divisor != 0 else {
             throw errores.division0("No puedes dividir entre 0")
         }
-        print("\(dividendo / divisor)")
+        return "\(dividendo / divisor)"
     }
     
     public func ejercicio4_15() throws -> String {
@@ -228,6 +277,320 @@ public class Ejercicio4 {
         guard let entrada = readLine() , let numCaracteres = Optional(entrada.count) , numCaracteres > 8 else {
             throw errores.menosCaracteres("La contraseña tiene que tener más de 8 caracteres.")
         }
+        return "La contraseña se ha guardado correctamente"
+    }
+    
+    public func ejercicio4_16( dato : Any) {
+        print("**************")
+        print("EJERCICIO 4_16")
+        print("**************")
+        guard let string = dato as? String else{
+            print("Esto no es un String")
+            return
+        }
+        print(string)
+    }
+    
+    public func ejercicio4_17(datos : [Any]) {
+        print("**************")
+        print("EJERCICIO 4_17")
+        print("**************")
+        for i in 0...datos.count {
+            switch datos[i] {
+                case let texto as String :
+                    print("String")
+                    break
+                case let numero as Int :
+                     print("Int")
+                break
+            case let dec as Double :
+                print("Double")
+                break
+            case let caracter as Character :
+                print("caracter")
+                break
+                
+            default:
+                print("Otro tipo: \(type(of:datos[i]))")
+            }
+        }
+        
+        
+    }
+    
+   /* public func ejercicio4_18(view : UIview) {
+      // No se puede importar el UIView no el UILabel
+    } */
+    
+   //Creacion de clases para el ejercicio 4_18
+    
+    //Creación de la superclase Animal
+    
+    class Animal {
+        
+        public func ladrar() {
+            
+        }
+    }
+    
+    //Creación de la subclase Perro que hereda de Animal
+    class Perro : Animal {
+        public override func ladrar() {
+            print("Guau")
+        }
+    }
+    
+    public func ejercicio4_18() {
+        print("**************")
+        print("EJERCICIO 4_18")
+        print("**************")
+        
+        let animal : Animal = Perro()
+        if let perro = animal as? Perro {
+            perro.ladrar()
+        } else {
+            print("No se pudo convertir")
+        }
+    }
+    
+    public func ejercicio4_19() {
+        print("**************")
+        print("EJERCICIO 4_19")
+        print("**************")
+        let diccionario : [String : Any] = [ "animal" : "gato" , "edad promedio" : 20 , "mamífero" : true , "altura promedio" : 0.23 ]
+        
+        if let animal = diccionario["animal"] as? String {
+            print("Animal : \(animal)")
+        }
+        
+        if let edad = diccionario["edad promedio"] as? Int {
+            print("Edad promedio : \(edad)")
+        }
+        
+        if let mamifero = diccionario["mamífero"] as? Bool {
+            print("Mamífero : \(mamifero)")
+        }
+        
+        if let altura = diccionario["altura promedio"] as? Double {
+            print("Altura promedia : \(altura)")
+        }
+    }
+    
+   
+    
+    class Persona : Saludable {
+        
+        func saludar() -> String {
+            "Hola"
+        }
     }
 
+    public func ejercicio4_20() {
+        print("**************")
+        print("EJERCICIO 4_20")
+        print("**************")
+        let persona : Persona = Persona()
+        print(persona.saludar())
+    }
+    
+    struct Coche : Vehiculo {
+        var velocidad: Double = 70.0
+        
+       func acelerar(masVelocidad : Double) -> Double {
+            masVelocidad + velocidad
+        }
+    }
+    
+    public func ejercicio4_21() {
+        print("**************")
+        print("EJERCICIO 4_21")
+        print("**************")
+        var coche : Coche = Coche()
+        coche.velocidad = 70.0
+        print(coche.acelerar(masVelocidad: 10.0))
+    }
+    
+    class Juego : Reiniciable {
+        func reiniciar(confirmacion: Bool) {
+            print("Reiniciando...")
+        }
+    }
+    
+    public func ejercicio4_22() {
+        print("**************")
+        print("EJERCICIO 4_22")
+        print("**************")
+        let juego : Juego = Juego()
+        juego.reiniciar(confirmacion: true)
+    }
+    
+     func ejercicio4_23(volador : Volador) {
+         print("**************")
+         print("EJERCICIO 4_23")
+         print("**************")
+         volador.volar()
+    }
+    
+    struct Triatleta : Nadador , Corredor {
+        func nadar() {
+            print("Nadando...")
+        }
+        
+        func correr() {
+            print("Corriendo...")
+        }
+        
+    }
+    
+    public func ejercicio4_24() {
+        print("**************")
+        print("EJERCICIO 4_24")
+        print("**************")
+        let atleta : Triatleta = Triatleta()
+        atleta.correr()
+        atleta.nadar()
+    }
+    
+    class Descargador {
+        var delegado : DownloadDelegate?
+        
+        func delegar() {
+            print("Descargando...")
+            delegado?.descargaTerminada()
+        }
+    }
+    
+    class Delegado : DownloadDelegate {
+        func descargaTerminada() {
+            print("La descarga ha terminado")
+        }
+    }
+    
+    public func ejercicio4_25() {
+        print("**************")
+        print("EJERCICIO 4_25")
+        print("**************")
+        let descarga : Descargador = Descargador()
+        let descargaDelegado : Delegado = Delegado()
+        descarga.delegar()
+    }
+    
+    class Sensor {
+        var delegado : DelegadoSensor?
+        
+        func cambio() {
+            delegado?.actualizarPantalla()
+        }
+    }
+    
+    class DelegadoSensor : Actualizable {
+        
+        func actualizarPantalla() {
+            print("Se ha actualizado la pantalla")
+        }
+    }
+    
+    public func ejercicio4_26() {
+        print("**************")
+        print("EJERCICIO 4_26")
+        print("**************")
+        let sensor : Sensor = Sensor()
+        let sensorDelegado : DelegadoSensor = DelegadoSensor()
+        sensor.cambio()
+    }
+    
+    class Boton {
+        var delegado : BotonDelegado?
+        
+        func presionar() {
+            delegado?.botonPresionado()
+        }
+    }
+    
+    class BotonDelegado : BotonDelegate {
+        func botonPresionado() {
+            print("El botón ha sido presionado")
+        }
+    }
+    
+    public func ejercicio4_27() {
+        print("**************")
+        print("EJERCICIO 4_27")
+        print("**************")
+        let boton : Boton = Boton()
+        let botonDelegado : BotonDelegado = BotonDelegado()
+        boton.delegado = botonDelegado
+        boton.presionar()
+    }
+    
+    class Formulario {
+        var delegadoError : FormularioDelegado?
+        
+        func validar(nombre : String, contra : String) {
+            if (nombre.isEmpty || nombre == nil || contra.isEmpty || contra == nil) {
+                delegadoError?.formularioInvalido()
+            }else {
+                print("Formulario aceptado.")
+            }
+        }
+        
+        
+    }
+    
+    class FormularioDelegado : FormularioDelegate {
+        func formularioInvalido() {
+            print("No se ha podido aceptar este formulario porque hay un error en los datos introducidos")
+        }
+    }
+    
+    public func ejercicio4_28() {
+        print("**************")
+        print("EJERCICIO 4_28")
+        print("**************")
+        let formularioDelegado : FormularioDelegado = FormularioDelegado()
+        let formulario : Formulario = Formulario()
+        formulario.delegadoError = formularioDelegado
+        formulario.validar(nombre: "Ainhoa", contra: "abc123.")
+    }
+    
+    public func ejercicio4_29() {
+        print("**************")
+        print("EJERCICIO 4_29")
+        print("**************")
+        var num1 = 2
+        var num2 = 4
+        var num = num1
+        num1 = num2
+        num2 = num
+        print(" \(num1) \(num2)")
+    }
+    
+    public func ejercicio4_30< A : Equatable >(array: [A], valorBuscar : A) -> Bool {
+        print("**************")
+        print("EJERCICIO 4_30")
+        print("**************")
+        for i in array {
+            if (i == valorBuscar) {
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        return false
+    }
+    
+    public func ejercicio4_31 < B : Equatable > ( array: [B] ) -> B? {
+        print("**************")
+        print("EJERCICIO 4_31")
+        print("**************")
+        return array.first
+    }
+    
+    public func ejercicio4_32 < C : Equatable > ( array : [C] ) {
+        print("**************")
+        print("EJERCICIO 4_32")
+        print("**************")
+        print(array)
+    }
 }
