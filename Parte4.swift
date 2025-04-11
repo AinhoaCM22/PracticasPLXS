@@ -52,7 +52,41 @@ protocol FormularioDelegate {
 public class Ejercicio4 {
     
     var array : [Int] = [ 1 , 2 , 3 , 4 ]
-    public init () {
+    let cadena : [Int] = [ 2 , 3 , 50 , 23 ]
+    
+    let dato : String = "hola"
+    let dato2 : [Any] = ["hola" , 3 , true]
+    public init () throws{
+        ejercicio4_1()
+        ejercicio4_2()
+        ejercicio4_3()
+        ejercicio4_4()
+        ejercicio4_5()
+        ejercicio4_6()
+        ejercicio4_7()
+        ejercicio4_8()
+        ejercicio4_9()
+        ejercicio4_10(cadena: cadena)
+        try ejercicio4_11()
+        try ejercicio4_12()
+        try ejercicio4_13()
+        try ejercicio4_14()
+        try ejercicio4_15()
+        ejercicio4_16(dato : dato)
+        ejercicio4_17(datos: dato2)
+        ejercicio4_18()
+        ejercicio4_19()
+        ejercicio4_20()
+        ejercicio4_21()
+        ejercicio4_22()
+        ejercicio4_24()
+        ejercicio4_25()
+        ejercicio4_26()
+        ejercicio4_27()
+        ejercicio4_28()
+        ejercicio4_29()
+        ejercicio4_30(array: cadena, valorBuscar: 2)
+        ejercicio4_31(array: cadena)
         ejercicio4_32(array: array)
     }
     
