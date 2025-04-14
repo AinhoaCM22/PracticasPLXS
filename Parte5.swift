@@ -13,6 +13,7 @@ public class Ejercicio5 {
         ejercicioOrdenar()
         ejercicioMap()
         ejercicioForEach()
+        ejercicioOtrasOpe()
     }
     
     public func ejercicioSet() {
@@ -175,7 +176,49 @@ public class Ejercicio5 {
         }
     }
     
-    public func 
+    public func ejercicioOtrasOpe () {
+        print("**************")
+        print("EJERCICIO 5_21")
+        print("**************")
+        var miArray = [ 3 , 9 , 4 , 6 , 1 , 2 ]
+        let miArrayPar = miArray.filter {
+            $0 % 2 == 0
+        }
+        print(miArrayPar)
+        print("**************")
+        print("EJERCICIO 5_22")
+        print("**************")
+        let suma = miArray.reduce(0) {
+            acumulador , num in acumulador + num
+        }
+        print(suma)
+        print("**************")
+        print("EJERCICIO 5_23")
+        print("**************")
+        var miArrayPalabras = [ "casa" , "montaña" , "playa" , "costa" , "ciudad" , "mar"]
+        let contador = miArrayPalabras.filter {
+            $0.count > 4
+        }.count
+        print(contador)
+        
+        print("**************")
+        print("EJERCICIO 5_24")
+        print("**************")
+        var miArrayAlfaNum = [ "3" , "casa" , "pelota" , "9"]
+        let miArrayInt = miArrayAlfaNum.filter {
+            Int($0) != nil
+        }
+        print(miArrayInt)
+        
+        print("**************")
+        print("EJERCICIO 5_25")
+        print("**************")
+        let miDiccionario = [ 20 : "Juana" , 30 : "María" , 10 : "Pedro" , 90 : "Fina"]
+        let miDiccionarioFiltrado = miDiccionario.filter {
+            ( clave , valor ) in clave > 25
+        }
+        print(miDiccionarioFiltrado)
+    }
     
    
 }

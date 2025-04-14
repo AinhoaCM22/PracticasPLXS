@@ -7,8 +7,8 @@
 
 import Foundation
 
-//Ejercicio1()
-//Ejercicio2()
-//Ejercicio3()
-//Ejercicio4()
+Ejercicio1()
+Ejercicio2()
+Ejercicio3()
+try Ejercicio4()
 Ejercicio5()
